@@ -21,7 +21,6 @@ opt.undofile = true -- enable persistent undo
 opt.smartcase = true -- when searching ignore case untill you type a capital case (then the search becomes case sensitive)
 opt.ignorecase = true -- works in conjuction with smartcase
 opt.clipboard = "unnamedplus" -- share clipboard with OS
-opt.splitright = true -- force all vertical splits to go to the right of the current buffer
 opt.splitbelow = true -- force all horizontal splits to go below the current buffer
 opt.completeopt = { "menu", "menuone", "noselect" } -- mostly just for cmp
 -- opt.cmdheight = 0                                          -- hide the command line on the bottom
@@ -76,9 +75,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Load plugins via Lazy
 require("lazy").setup("plugins")
-
 -- Load LSP settings
 require("lsp")
-
 -- Load keybindings
 require("keybindings")

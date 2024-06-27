@@ -14,18 +14,21 @@ vim.keymap.set("v", "p", '"_dp"')
 vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
 vim.keymap.set("n", "<C-e>", "<Cmd>Neotree toggle<CR>")
 
-vim.keymap.set("n", "<C-s>", ":w<CR>", opts)
+vim.keymap.set("n", "<C-s>", ":wa!<CR>", opts)
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>", opts)
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>gv", opts)
+
 -- undotree
 vim.keymap.set("n", "<leader>ut", "<cmd>UndotreeToggle<CR>", {})
 vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", opts)
 
 --Neotree
 vim.keymap.set("n", "<leader>bf", ":Neotree buffers reveal float<CR>", {})
+vim.keymap.set("n", "<leader>ge", function()
+    require("neo-tree.command").execute({ source = "git_status", toggle = true })
+end, { desc = "Git Explorer" })
 
 -- Telescope searching
-vim.keymap.set("n", "<leader>p", "<cmd>Telescope find_files<CR>", { desc = "Find files (telescope) [Ctrl-p]" })
 vim.keymap.set(
     "n",
     "<leader>,",
@@ -41,6 +44,7 @@ vim.keymap.set(
 
 vim.keymap.set("n", "<leader>j", ts_builtin.live_grep, { desc = "Search in your current directory", silent = true })
 
+-- spectre ( search and replace )
 vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
     desc = "Search and replace on current file",
 })
@@ -78,16 +82,12 @@ function m.lsp_keybindings_for_buffer(bufnr)
     buf_set_keymap(bufnr, "n", "<S-r>", "<cmd>lua vim.lsp.buf.rename()<CR>", {})
     buf_set_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", {})
     buf_set_keymap(bufnr, "n", "st", "<cmd>Telescope git_status<CR>", {})
-    -- buf_set_keymap(bufnr, "n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", {})
-    -- buf_set_keymap(bufnr, "n", "<leader>ac", "<cmd>Telescope lsp_code_actions<CR>", {})
     buf_set_keymap(bufnr, "n", "<leader>ac", "<cmd>lua vim.lsp.buf.code_action()<CR>", {})
     buf_set_keymap(bufnr, "n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", {})
     buf_set_keymap(bufnr, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", {})
     buf_set_keymap(bufnr, "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", {})
     buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>Telescope diagnostics<CR>", {})
     buf_set_keymap(bufnr, "n", "<leader>ff", "<cmd>lua vim.lsp.buf.format { async = true }<CR>", {})
-    -- buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", {})
-    --vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 end
 
 return m
