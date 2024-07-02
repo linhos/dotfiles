@@ -97,25 +97,6 @@ lspconfig.cssls.setup({
 -- TailwindCSS
 lspconfig.tailwindcss.setup({})
 
--- Prisma
-lspconfig.prismals.setup({
-    capabilities = capabilities,
-    on_attach = function(_, bufnr)
-        require("keybindings").lsp_keybindings_for_buffer(bufnr)
-    end,
-})
-
--- Vue.js
-lspconfig.volar.setup({
-    capabilities = capabilities,
-    on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-
-        require("keybindings").lsp_keybindings_for_buffer(bufnr)
-    end,
-})
-
 -- Typescript
 lspconfig.tsserver.setup({
     capabilities = capabilities,

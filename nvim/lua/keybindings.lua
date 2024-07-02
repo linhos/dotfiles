@@ -7,6 +7,10 @@ local buf_set_keymap = vim.api.nvim_buf_set_keymap
 local ts_builtin = require("telescope.builtin")
 local opts = { noremap = true, silent = true }
 
+-- better moving betting
+vim.keymap.set("n", "L", "<C-w>l", { noremap = true, silent = true })
+vim.keymap.set("n", "H", "<C-w>h", { noremap = true, silent = true })
+
 vim.keymap.set("i", "jj", "<ESC>", { silent = true })
 vim.keymap.set("i", "kj", "()<Left>", { silent = true })
 vim.keymap.set("i", "df", "{}<Left>", { silent = true })
@@ -18,9 +22,12 @@ vim.keymap.set("n", "<C-s>", ":wa!<CR>", opts)
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>", opts)
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>gv", opts)
 
+-- better vertical splitting
+vim.keymap.set("n", "<leader>v", "<C-w>v", { noremap = true, silent = true })
+
 -- undotree
 vim.keymap.set("n", "<leader>ut", "<cmd>UndotreeToggle<CR>", {})
-vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", opts)
+-- vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", opts)
 
 --Neotree
 vim.keymap.set("n", "<leader>bf", ":Neotree buffers reveal float<CR>", {})
