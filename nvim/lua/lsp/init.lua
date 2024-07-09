@@ -46,8 +46,6 @@ require("mason-lspconfig").setup()
 -- Ensure LSP servers and formatters are installed through Mason
 require("mason-tool-installer").setup({
     ensure_installed = {
-        -- LSP Servers
-        -- "prismals",
         "lua_ls",
         "tsserver",
         "eslint",
