@@ -1,0 +1,11 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "_lazygit_toggle",
+        "_serpl_toggle",
+        "_lazydocker_toggle",
+        "_overmind_frontend_toggle",
+        "_overmind_backend_toggle",
+        "_overmind_console_toggle"
+    ]
+}
