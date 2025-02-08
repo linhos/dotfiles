@@ -1,0 +1,12 @@
+{
+  "extras": [
+    "lazyvim.plugins.extras.editor.refactoring",
+    "lazyvim.plugins.extras.editor.telescope",
+    "lazyvim.plugins.extras.lang.markdown"
+  ],
+  "news": {
+    "NEWS.md": "10960",
+    "doc/news.txt": "14042"
+  },
+  "version": 7
+}
